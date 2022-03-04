@@ -1,0 +1,275 @@
+*{
+    box-sizing: border-box;
+}
+
+a {
+     color: inherit; 
+     text-decoration: none;
+}
+
+.final{
+    height: 1500px;
+    width: 100%;
+    /* background-color: rgb(202, 106, 106); */
+    display: flex;
+    overflow: auto;
+    font-size: 20px;
+    color: black;
+    /* box-sizing: border-box; */
+}
+
+.resumeContainer{
+    width: 75%;
+    height: 1500px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume{
+    width: 70%;
+    /* height: 180%; */
+    height: 1400px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 8%;
+}
+
+.contactName{
+    padding-left: 5%;
+}
+
+.contactLine1{
+    display: flex ;
+    align-items: center;
+    font-size: 35px;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+    /* background-color: black; */
+}
+
+.detailHeading{
+    margin-top: 5%;
+    text-decoration: underline;
+    /* color: rgb(25, 25, 27); */
+    font-weight: 600;
+}
+
+.sidebar{
+    width: 25%;
+    height: 1500px;
+    background-color: rgb(231, 230, 230);
+    /* margin: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    padding: 30px;
+    /* position: fixed; */
+}
+
+.sidebarHeading{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.sidebarHeading2{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.exportOption{
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+
+.subHeading{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.download{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(69, 216, 209);
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 20px;
+
+}
+
+.print{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(69, 216, 209);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+
+}
+
+.email{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(69, 216, 209);
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 20px;
+
+}
+
+.formattingOptions{
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+
+.subText{
+    font-size: 14px;
+    font-weight: 450;
+    margin-top: 5px;
+}
+
+.condensed{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(245, 166, 153);
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.standard{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(245, 166, 153);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+
+
+}
+
+.expanded{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(245, 166, 153);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+}
+
+.fontSelection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontSelect{
+    width: 150px;
+    height: 30px;
+    /* height: 55%;
+    width: 100%; */
+}
+
+.colorOption{
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+
+.colorContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.color1{
+    height: 30px;
+    width: 30px;
+    background-color: green;
+    border-radius: 50%;
+    color: green;
+}
+
+.color2{
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    border-radius: 50%;
+    color: blue;
+}
+
+.color3{
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+    color: red;
+}
+
+.color4{
+    height: 30px;
+    width: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    color: yellow;
+}
+
+.color5{
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    border-radius: 50%; 
+    color: black;
+}
+
+.color6{
+    height: 30px;
+    width: 30px;
+    background-color: skyblue;
+    border-radius: 50%;
+    color: skyblue;
+}
+
+.color7{
+    height: 30px;
+    width: 30px;
+    background-color: orange;
+    border-radius: 50%;
+    color: orange;
+}
+
+.color8{
+    height: 30px;
+    width: 30px;
+    background-color: violet;
+    border-radius: 50%;
+    color: violet;
+}
+
+.color9{
+    height: 30px;
+    width: 30px;
+    background-color: lawngreen;
+    border-radius: 50%;
+    color: lawngreen;
+}
+
+.colorContainer{
+    margin-top: 5px;
+}
+
+.lastsection{
+    width: 100%;
+    height: 30px;
+    background-color: violet;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 20px;
+}

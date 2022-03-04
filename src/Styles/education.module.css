@@ -1,0 +1,126 @@
+.educationContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.educationContainer form{
+    padding: 30px;
+    width: 27%;
+    height: 80%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.text2{
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    margin: 10px 0 25px 0;
+}
+
+.educationContainer form select[name="Month"]
+{
+    width: 220px;
+    height: 35px;
+    margin-top: 5px;
+}
+
+.educationContainer form select[name="Year"]
+{
+    width: 220px;
+    height: 35px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+.educationContainer form input[type="submit"]{
+    width: 250px;
+    height: 30px;
+    background-color: rgb(119, 197, 3);
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.backForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    color: blue;
+}
+
+.formButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+} 
+
+.cityCountry{
+    display: flex;
+    flex-direction: row;
+}
+
+.cityCountryInput{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.label{
+    margin-top: 10px;
+}
+
+.lebel1{
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.lebel2{
+    margin-right: 135px;
+    margin-top: 10px;
+}
+
+.cityInput input{
+    margin-top: 5px;
+    height: 25px;
+    width: 190px;
+}
+
+.countryInput input{
+    margin-top: 5px;
+    margin-left: 25px;
+    height: 25px;
+    width: 190px;
+}
+
+.inp{
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.graduationInput{
+    display: flex;
+    flex-direction: row;
+}
+
+.baseline{
+    margin-top: 10px;
+}
+
+.textbox{
+    width: 100%;
+    height: 60px;
+    margin-top: 5px;
+}
+
+

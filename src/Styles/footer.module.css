@@ -1,0 +1,34 @@
+.main {
+    /* border: 1px solid black; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* box-shadow: 0px 10px 5px #888, 0px -10px 5px #888; */
+    box-shadow: inset 0px 11px 8px -10px #CCC;
+    padding-left: 40px;
+    background: #00000024;
+    /* padding-right: 40px; */
+}
+
+.copyRight {
+    display: flex;
+    align-items: center;
+}
+
+.scrollUp {
+    position: absolute;
+    /* bottom: 50px; */
+    right: 40px;
+    top: 10px;
+    cursor: pointer;
+    background: #ED1556;
+    text-align: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

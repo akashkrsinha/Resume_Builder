@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import Layout from './Components/Layout';
-import Home from './Pages/Home';
+import Home from './Components/Home';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import Login from './Pages/Login';
-import Signup from './Pages/Signup';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 import Contact from './Pages/Contact';
 import Experience from './Pages/Experience';
 import Education from './Pages/Education';

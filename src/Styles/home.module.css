@@ -1,64 +1,98 @@
-*{
+* {
     box-sizing: border-box;
-    /* color: black; */
 }
 
-.home{
-    height: 100%;
+.home {
+    height: auto;
     width: 100%;
+    overflow: auto;
+}
+
+.top {
+    height: 450px;
+    width: 100%;
+    background: #503794;
     display: flex;
-    flex-direction: row; 
 }
 
-.left{
-    background-color: green;
+.topLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
-    height: 100%;
-    background-image: url("./reduxbg.jpg");
 }
 
-.center{
+.mainTitle {
+    font-size: 36px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnContainer{
+    margin-top: 25px;
+}
+
+.middle {
+    height: 450px;
+    width: 100%;
+    background: white;
+}
+
+.btn {
+    background-color: #ED1556;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 25px 25px;
+}
+
+.topRight{
     display: flex;
     justify-content: center;
-    margin-top: 350px;
-    /* align-items: center; */
-    /* background-color: green; */
-}
-
-.right{
+    align-items: center;
     width: 50%;
-    height: 100%;
-    background-image: url("./homeimage.jpg");
 }
 
-.rightImg{
+.bottom{
+    height: 450px;
     width: 100%;
+    background: white;
+    display: flex;
+}
+
+.bottomLeft {
+    font-size: 36px;
+    /* color: #503794; */
+    color: #ED1556;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 }
-
-#homecvimg{
-    height: 100%;
-    width: 100%;
+.bottomRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.text1{
-
+.arrContainer{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
 }
-
-.makebtn{
-    background-color: rgb(228, 123, 62);
-    height: 50px;
-    color: black;
-    border-radius: 50px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 25px 25px;
-    
+.arrItems{
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 600;
 }
-
-
-/* Slider */
-/* .homeImg{
-    height: 50%;
-    width: 100px;
-} */
-
-

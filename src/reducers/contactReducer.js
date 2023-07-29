@@ -1,10 +1,10 @@
 let initialState = {
-    name : 'Akash Kumar Sinha',
-    email : 'mailme.akashsinha@gmail.com',
-    address : 'Sector 63',
-    city : 'Noida',
-    country : 'India',
-    number : '8340783611'
+    name : '',
+    email : '',
+    address : '',
+    city : '',
+    country : '',
+    number : ''
 }
 
 const contactReducer = (state = initialState, action) =>{

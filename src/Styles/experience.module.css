@@ -6,11 +6,13 @@
     height: 100%;
 }
 
-.experienceContainer form{
-    padding: 30px;
-    width: 25%;
-    height: 80%;
+.main {
+    /* padding: 30px; */
+    padding: 20px 30px 10px 30px;
+    width: 30%;
+    height: 90%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
 }
 
 .text1{
@@ -24,6 +26,11 @@
     display: flex;
     justify-content: center;
     font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.label {
+    margin-top: 5px;
 }
 
 .experienceContainer form input[type="text"]

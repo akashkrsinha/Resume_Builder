@@ -107,7 +107,7 @@ export default function Signup() {
     // }, [userDetail])
     return (
         <div class={style.formcard}>
-            <h2 class="form-heading center">Enter your details</h2>
+            {/* <h2 class="form-heading center">Enter your details</h2>
 
 
             <div class="form-section">
@@ -134,7 +134,7 @@ export default function Signup() {
                 <div class="form-buttons">
                     <button class="btn hvr-float-shadow" type="button" onClick={handelRegister}>Register</button>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

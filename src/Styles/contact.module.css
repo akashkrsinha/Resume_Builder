@@ -1,4 +1,4 @@
-.aboutusContainer{
+.aboutusContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,71 +6,53 @@
     height: 100%;
 }
 
-.aboutusContainer form{
-    padding: 30px;
-    width: 25%;
-    height: 80%;
+.main {
+    /* padding: 30px; */
+    padding: 20px 30px 10px 30px;
+    width: 30%;
+    height: 90%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
 }
 
-.aboutusContainer h1{
+.header {
+    font-size: 24px;
+    font-weight: 700;
     display: flex;
     justify-content: center;
-    box-sizing: border-box;
-    margin-top: 10px;
 }
 
-.aboutusContainer p{
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box
+.label {
+    margin-top: 5px;
 }
 
-.aboutusContainer form input[type="email"]{
-    width: 50%;
-    height: 25px;
-}
-
-.aboutusContainer form input[type="number"]{
-    width: 50%;
-    height: 25px;
-}
-
-.aboutusContainer form input[type="text"]
-{
+input {
     width: 100%;
-    height: 25px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 3px;
 }
 
-.aboutusContainer form input[type="checkbox"]{
-    width: 15px;
-    height: 15px;
-    margin-left: 5px;
-}
-
-.aboutusContainer form span{
-    color: blue;
-}
-
-.formButton{
+.formButton {
     display: flex;
     justify-content: center;
     width: 100%;
-}
-.aboutusContainer form input[type="submit"]{
-    width: 250px;
-    height: 40px;
-   background-color: rgb(119, 197, 3);
-   margin-top: 25px;
-   border-radius: 5px;
-   border: none;
+    margin-top: auto;
+    /* height: 100%; */
+    margin-top: 20px;
 }
 
+.aboutusContainer input[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgb(119, 197, 3);
+    border-radius: 5px;
+    border: none;
+}
 
-.backForm{
+.backBtn {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    /* margin-top: 3px; */
     color: blue;
 }
-

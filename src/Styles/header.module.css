@@ -1,24 +1,65 @@
-.logo{
-    margin-right: auto;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.logo img{
+Link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logoText {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.logo img {
     height: 50px;
 }
-.contents{
+
+.contents {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
+    align-items: center;
+    color: #ED1556;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: auto;
 }
-.loginbtn{
-    font-weight: bold;
-    color: blue;
-    padding:5px;
+
+.navItem {
+    margin-right: 20px;
 }
-.signupbtn{
-    border-radius: 10%;
-    /* border: 2px solid blue; */
-    padding:5px;
-    color: blue;
-    font-weight: bold;
+
+.btns {
+    margin-right: 20px;
+    padding: 4px 10px;
+    border: 2px solid #ED1556;
+    outline: none;
+    border-radius: 4px;
+    color: #ED1556;
+}
+
+.btns:hover {
+    color: white;
+    background: #ED1556;
+}
+
+button {
+    background: #ED1556;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 18px;
+    border: 2px solid #ED1556;
 }

@@ -3,13 +3,13 @@ import style from '../Styles/contact.module.css'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import setContact from '../actions/contact.action'
-import {db} from '../firebaseConfig'
+import { db } from '../firebaseConfig'
 import { doc, setDoc, updateDoc } from 'firebase/firestore'
 // import { useSelector } from 'react-redux'
 
 export default function Contact() {
     const dispatch = useDispatch()
-    let { ContactReducer,userReducer } = useSelector((state) => state)
+    let { ContactReducer, userReducer } = useSelector((state) => state)
 
     console.log(ContactReducer);
 
@@ -26,7 +26,7 @@ export default function Contact() {
     let obj = {}
 
     function handelChange(e) {
-        let {name, value}=e.target
+        let { name, value } = e.target
 
         setForm({
             ...form,
@@ -45,38 +45,34 @@ export default function Contact() {
         obj.country = form.country;
         obj.number = form.number;
         console.log(obj);
-        const docRef = await updateDoc(doc(db, "user_info",userReducer.uid), {contact:obj})
+        const docRef = await updateDoc(doc(db, "user_info", userReducer.uid), { contact: obj })
         dispatch(setContact(obj))
     }
 
     return (
 
         <div className={style.aboutusContainer}>
-            <form>
-                <h1>Tell us about yourself</h1>
-                <p>With this info, recruiters will be able to find you.</p>
+            <div className={style.main}>
+                <div className={style.header}>Tell us about yourself</div>
+                {/* <p>With this info, recruiters will be able to connect with you.</p> */}
 
-                <div className='label'>Name</div>
-                <input type="text" required placeholder='*Required' onChange={handelChange} name='name' value={form.name}></input>
+                <div className={style.label}>Name</div>
+                <input type="text" onChange={handelChange} name='name' value={form.name}  placeholder='Please Enter Name'></input>
 
-                <div className='label'>Email</div>
-                <input type="email" required placeholder='*Required' onChange={handelChange} name='email' value={form.email}></input>
+                <div className={style.label}>Email</div>
+                <input type="email" onChange={handelChange} name='email' value={form.email}  placeholder='Please Enter Email'></input>
 
-                <input type="checkbox"></input>
-                <span>Don't show on resume</span>
+                <div className={style.label}>Street Address</div>
+                <input type="text" onChange={handelChange} name='address' value={form.address}  placeholder='Please Enter Address'></input>
 
-                <div className='label'>Street Address</div>
-                <input type="text" onChange={handelChange} name='address' value={form.address}></input>
+                <div className={style.label}>City</div>
+                <input type="text" onChange={handelChange} name='city' value={form.city}  placeholder='Please Enter City'></input>
 
-                <div className='label'>City</div>
-                <input type="text" onChange={handelChange} name='city' value={form.city}></input>
+                <div className={style.label}>Country</div>
+                <input type="text" onChange={handelChange} name='country' value={form.country}  placeholder='Please Enter Country'></input>
 
-                <div className='label'>Country</div>
-                <input type="text" onChange={handelChange} name='country' value={form.country}></input>
-
-                <div className='label'>Phone Number</div>
-                <input type="number" onChange={handelChange} name='number' value={form.number}></input>
-                <span>+Add another number</span>
+                <div className={style.label}>Phone Number</div>
+                <input type="number" onChange={handelChange} name='number' value={form.number}  placeholder='Please Enter Phone Number'></input>
 
                 <div className={style.formButton}>
                     <Link to='/experience' style={{ textDecoration: "none" }}>
@@ -85,9 +81,9 @@ export default function Contact() {
                 </div>
 
                 <Link to='/' style={{ textDecoration: "none" }}>
-                    <div className={style.backForm}> Back </div>
+                    <div className={style.backBtn}> Back </div>
                 </Link>
-            </form>
+            </div>
         </div>
 
     )

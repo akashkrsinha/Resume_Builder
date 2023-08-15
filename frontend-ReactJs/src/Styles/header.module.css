@@ -63,3 +63,8 @@ button {
     font-size: 18px;
     border: 2px solid #ED1556;
 }
+
+.logoDiv {
+    display: flex;
+    align-items: center;
+}

@@ -10,4 +10,27 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: 400px;
     width: 400px;
+    padding: 25px;
+}
+
+.headerCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputCon {
+    margin-top: 25px;
+}
+
+.buttonCon {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit {
+    border-radius: 4px;
+    margin-top: 20px;
 }

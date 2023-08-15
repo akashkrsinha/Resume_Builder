@@ -1,76 +1,81 @@
 import React, { useRef, useState, useEffect } from 'react'
 import styles from '../Styles/login.module.css'
-import setUser from '../actions/contact.action'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { db } from '../firebaseConfig'
-import { useDispatch, useSelector } from 'react-redux'
-
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 export default function Login() {
 
     const emailLogin = useRef();
     const passwordLogin = useRef();
+    const [emailReq, setEmailReq] = useState(false);
+    const [passReq, setPassReq] = useState(false);
+    const navigate = useNavigate()
 
+    const handelLogin = () => {
+        if (emailLogin.current.value === "") {
+            setEmailReq(true);
+            return;
+        } else if (passwordLogin.current.value == "") {
+            setPassReq(true);
+            return;
+        }
 
-    // let { ContactReducer } = useSelector((state) => state)
-    // let { UserReducer } = useSelector((state) => state)
-    // // console.log(UserReducer);
+        let payload = { email: emailLogin.current.value, password: passwordLogin.current.value };
 
-    // const [userDetail, setUserDetail] = useState(UserReducer)
-    // // const [loading, setLoading] = useState(false)
+        axios.post('http://localhost:5000/login', payload)
+            .then((res) => {
+                sessionStorage.setItem('token', res?.token);
+                sessionStorage.setItem('user', res?.data?.name);
+                Swal.fire("Success", "Logged-In Successfully", 'success')
+                    .then(() => {
+                        emailLogin.current.value = "";
+                        passwordLogin.current.value = "";
 
-    // const dispatch = useDispatch()
+                        navigate('/contact');
+                    });
 
-    function handelLogin() {
-
-        // const auth = getAuth();
-        // signInWithEmailAndPassword(auth, emailLogin.current.value, passwordLogin.current.value)
-        //     .then((userCredential) => {
-        //         const user = userCredential.user;
-        //         const { uid, email } = user
-        //         console.log(uid, email);
-
-
-        //         setUserDetail({
-        //             // ...userDetail,
-        //             uid: uid,
-        //             email: email
-        //         })
-        //         // console.log(userDetail);
-        //         // loading(true)
-        //         alert("LogIn Successfully")
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         alert("Unable to Login")
-        //     });
+            })
+            .catch((error) => {
+                console.log(error);
+                Swal.fire('Error', `${error.response.data.message}`, 'error');
+            })
 
     }
 
-    // useEffect(() => {
-    //     dispatch(setUser(userDetail))
-    //     console.log(UserReducer);
-    // }, [userDetail])
+    const handleChange = (event) => {
+        // console.log('event', event.target.name);
+        if (event.target.name == 'email' && emailLogin.current.value != "") {
+            setEmailReq(false);
+        } else if (event.target.name == 'email' && emailLogin.current.value == "") {
+            setEmailReq(true);
+        } else if (event.target.name == 'password' && passwordLogin.current.value != "") {
+            setPassReq(false);
+        } else if (event.target.name == 'password' && passwordLogin.current.value == "") {
+            setPassReq(true);
+        }
+    }
+
     return (
         <div className={styles.main}>
-            <div className={styles.formcard} style={{ border: "1px solid red" }}>
-                <h2 className="form-heading center">Enter Login details</h2>
-                <div className="form-section">
-                    <div className="input-group">
-                        <label>Email</label>
-                        <div className="effect">
-                            <input type="text" name="email" ref={emailLogin} />
-                        </div>
+            <div className={styles.formcard}>
+                <div className={styles.headerCon}>
+                    <h2>Enter Login details</h2>
+                </div>
+                <div className={styles.inputCon}>
+                    <div>
+                        <div>Email</div>
+                        <input type="text" onChange={handleChange} name="email" placeholder='Please Enter Email' ref={emailLogin} />
+                        {emailReq && <div style={{ color: 'red' }}>Email is required</div>}
                     </div>
-                    <div className="input-group ">
-                        <label>Password</label>
-                        <div className="effect">
-                            <input type="password" name="password" ref={passwordLogin} />
-                        </div>
+
+                    <div>
+                        <div style={{ marginTop: '25px' }}>Password</div>
+                        <input type="password" onChange={handleChange} name="password" placeholder='Please Enter Password' ref={passwordLogin} />
+                        {passReq && <div style={{ color: 'red' }}>Password is required</div>}
                     </div>
-                    <div className="form-buttons">
-                        <input type='submit' className="btn hvr-float-shadow" onClick={handelLogin} />
+                    <div className={styles.buttonCon}>
+                        <button className={styles.submit} onClick={handelLogin}>Submit</button>
                     </div>
                 </div>
             </div>

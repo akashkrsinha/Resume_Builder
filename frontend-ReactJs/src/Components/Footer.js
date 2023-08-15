@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <div className={style.main}>
-            <div class={style.copyRight}>
+            <div className={style.copyRight}>
                 <FaCopyright /> <span style={{ marginLeft: '7px', fontWeight: "600" }}>Copyright 2023, all rights reserved with Resume Creator</span>
             </div>
             <div className={style.scrollUp} onClick={goToTop} title="Go To Top">

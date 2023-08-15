@@ -1,140 +1,81 @@
 import React, { useRef, useEffect, useState } from 'react'
 import style from '../Styles/signup.module.css'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useDispatch, useSelector } from 'react-redux'
-import setUser from '../actions/contact.action'
 import { useNavigate } from 'react-router';
-
-import {
-    collection,
-    addDoc,
-    query,
-    onSnapshot,
-    doc,
-    setDoc,
-    // deleteField,
-} from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import axios from 'axios';
+import Swal from 'sweetalert2'
 
 export default function Signup() {
+    const navigate = useNavigate()
+    const [nameReq, setnameReq] = useState(false);
+    const [emailReq, setEmailReq] = useState(false);
+    const [passReq, setPassReq] = useState(false);
+    const userName = useRef()
+    const userEmail = useRef()
+    const userPassword = useRef()
 
-    const dispatch = useDispatch()
+    const handleSubmit = () => {
+        // console.log('User Details', userName.current.value, userEmail.current.value, userPassword.current.value);
 
-    const navigation = useNavigate()
-
-    let { userReducer } = useSelector((state) => state)
-    // const [userDetail, setUserDetail] = useState(userReducer)
-    const [getArr, setGetArr] = useState([]);
-    const name = useRef()
-    const emailRegister = useRef()
-    const passwordRegister = useRef()
-
-    // useEffect(() => {
-    //     const qry = query(collection(db, "user_info"));
-    //     const unsubscribe = onSnapshot(qry, (querySnapshot) => {
-    //       const newArr = [];
-    //       querySnapshot.forEach((doc) => {
-    //         newArr.push(doc);
-    //       });
-    //       console.log(newArr);
-    //       setGetArr(newArr);
-    //     });
-    //   }, []);
-
-
-    //  async function handelAdd(user){
-    //      try {
-    //         //  alert("inside alert")
-    //          console.log("Inside add Function");
-    //         //  console.log(name.current.value);
-    //         //  console.log(emailRegister.current.value);
-    //         //  console.log(passwordRegister.current.value);
-
-
-
-    //         //  console.log("Document written with ID: ", docRef.id);
-    //        } catch (error) {
-    //          console.log(error);
-    //        }
-    //   }
-
-
-    async function handelRegister() {
-
-        const auth = getAuth();
-        try {
-            console.log("First");
-            let user = await createUserWithEmailAndPassword(auth, emailRegister.current.value, passwordRegister.current.value)
-            console.log("You are Registered Now")
-            console.log("2");
-            // Signed in 
-            user = user.user;
-            console.log(3);
-
-            dispatch(
-                setUser(
-                    {
-                        email: user.email,
-                        uid: user.uid,
-                    }))
-
-            await setDoc(doc(db, "user_info", user.uid), {
-                name: name.current.value,
-                email: emailRegister.current.value,
-                password: passwordRegister.current.value,
-            });
-
-            console.log(userReducer);
-            console.log(user.email, user.uid);
-            // console.log(userReducer);
-            // handelAdd(user)
-            navigation("/contact")
-        }
-        catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // alert(errorCode, errorMessage, "Unable to Register")
-            // ..
-            alert("Unable to Register")
+        if (userName.current.value === "") {
+            setnameReq(true);
+            return;
+        } else if (userEmail.current.value == "") {
+            setEmailReq(true);
+            return;
+        } else if (userPassword.current.value == "") {
+            setPassReq(true);
+            return;
         }
 
+        let payload = { name: userName.current.value, email: userEmail.current.value, password: userPassword.current.value };
 
+        axios.post('http://localhost:5000/register', payload)    //Sending Payload in body of API
+            // axios.get('http://127.0.0.1:5000/register')
+            .then((res) => {
+                // console.log(res);
+                Swal.fire('Success', 'User Registered Successfully', 'success').then(() => {
+                    userName.current.value = "";
+                    userEmail.current.value = "";
+                    userPassword.current.value = "";
+                    navigate('/login');
+                });
+            })
+            .catch((error) => console.log(error))
     }
-    //     useEffect(() => {
 
-    //     console.log(userReducer);
+    const handleChange = (event) => {
+        // console.log('event', event.target.name);
+        if (event.target.name == 'name' && userName.current.value != "") {
+            setnameReq(false);
+        } else if (event.target.name == 'name' && userName.current.value == "") {
+            setnameReq(true);
+        } else if (event.target.name == 'email' && userEmail.current.value != "") {
+            setEmailReq(false);
+        } else if (event.target.name == 'email' && userEmail.current.value == "") {
+            setEmailReq(true);
+        } else if (event.target.name == 'password' && userPassword.current.value != "") {
+            setPassReq(false);
+        } else if (event.target.name == 'password' && userPassword.current.value == "") {
+            setPassReq(true);
+        }
+    }
 
-    // }, [userDetail])
     return (
-        <div class={style.formcard}>
-            {/* <h2 class="form-heading center">Enter your details</h2>
+        <div className={style.formcard}>
+            <div className={style.inputContainer}>
+                <div className={style.header}>Sign Up</div>
 
+                <input type='text' name='name' ref={userName} onChange={handleChange} placeholder='Enter Name*' className={style.input} />
+                {nameReq && <div style={{ color: 'red', marginRight: 'auto' }}>Name is required</div>}
 
-            <div class="form-section">
-                <div class="input-group full">
-                    <label>Name</label>
-                    <div class="effect">
-                        <input type="text" name="name" ref={name} />
-                    </div>
-                </div>
+                <input type='text' name='email' ref={userEmail} onChange={handleChange} placeholder='Enter Email*' className={style.input} />
+                {emailReq && <div style={{ color: 'red', marginRight: 'auto' }}>Email is required</div>}
 
-                <div class="input-group full">
-                    <label>Email</label>
-                    <div class="effect">
-                        <input type="text" name="email" ref={emailRegister} />
-                    </div>
-                </div>
+                <input type='password' name='password' ref={userPassword} onChange={handleChange} placeholder='Enter Password*' className={style.input} />
+                {passReq && <div style={{ color: 'red', marginRight: 'auto' }}>Password is required</div>}
 
-                <div class="input-group full">
-                    <label>Password</label>
-                    <div class="effect">
-                        <input type="password" name="password" ref={passwordRegister} />
-                    </div>
-                </div>
-                <div class="form-buttons">
-                    <button class="btn hvr-float-shadow" type="button" onClick={handelRegister}>Register</button>
-                </div>
-            </div> */}
+                <button onClick={handleSubmit} className={style.submit}>Submit</button>
+            </div>
         </div>
     )
 }
